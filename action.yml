@@ -1,0 +1,9 @@
+name: setup-blocc-cli
+description: Install the blocc CLI on Github Actions runners
+inputs:
+  version:
+    description: "Version of blocc CLI"
+    required: false
+runs:
+  using: "node20"
+  main: "src/index.js"

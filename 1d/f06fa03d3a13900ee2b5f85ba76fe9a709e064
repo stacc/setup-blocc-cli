@@ -1,0 +1,19 @@
+action.yml
+  s_6cca2c2f82ed06::t_ba998b29542157 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "1df06fa03d3a13900ee2b5f85ba76fe9a709e064",
+  "prompts": {},
+  "sessions": {
+    "s_6cca2c2f82ed06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96a0481e-d7c1-43b1-815d-105b92351d68",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rein Undheim <reinu@stacc.com>"
+    }
+  }
+}

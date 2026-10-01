@@ -32,6 +32,7 @@ steps:
 The actions supports the following inputs:
 
 - `version`: The version of `blocc` to install, defaulting to latest
+- `token`: GitHub token for the latest-release lookup, defaulting to `github.token`. Unauthenticated lookups are rate limited per runner IP.
 
 ## Example job
 

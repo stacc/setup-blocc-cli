@@ -9,9 +9,15 @@ async function setup() {
 
       if (version === "") {
         core.info("Version not set, fetching latest");
-        const resp = await fetch("https://api.github.com/repos/stacc/blocc-cli-releases/releases/latest");
+        const token = core.getInput("token");
+        const resp = await fetch("https://api.github.com/repos/stacc/blocc-cli-releases/releases/latest", {
+          headers: token ? { Authorization: `Bearer ${token}` } : {},
+        });
+        if (!resp.ok) {
+          throw new Error(`Failed to fetch latest blocc release: ${resp.status} ${await resp.text()}`);
+        }
         const json = await resp.json();
-        version = json.name.replace("cli-v", "");
+        version = json.tag_name.replace("cli-v", "");
       }
 
       core.info(`Using version ${version}`);

@@ -4,6 +4,10 @@ inputs:
   version:
     description: Version of blocc CLI
     required: false
+  token:
+    description: GitHub token used to look up the latest release
+    required: false
+    default: ${{ github.token }}
 runs:
   using: node20
   main: dist/index.js

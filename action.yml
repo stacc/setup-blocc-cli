@@ -2,7 +2,7 @@ name: setup-blocc-cli
 description: Install the blocc CLI on Github Actions runners
 inputs:
   version:
-    description: Version of blocc CLI
+    description: Version of blocc CLI, e.g. 1.10.0 or a beta such as 1.11.0-beta.48
     required: false
   token:
     description: GitHub token used to look up the latest release

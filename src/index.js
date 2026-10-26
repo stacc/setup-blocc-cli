@@ -25,10 +25,14 @@ async function setup() {
       let localBloccPath = tc.find('blocc', version);
 
       if (localBloccPath === '') {
-        const bloccPath = await tc.downloadTool(`https://github.com/stacc/blocc-cli-releases/releases/download/cli-v${version}/blocc_${version}_${os.platform()}_${os.arch() === "x64" ? "amd64" : os.arch()}.tar.gz`);
+        const beta = version.includes("-beta.");
+        const tag = beta ? `beta-cli-v${version}` : `cli-v${version}`;
+        const binary = beta ? "blocc-beta" : "blocc";
+        const arch = os.arch() === "x64" ? "amd64" : os.arch();
+        const bloccPath = await tc.downloadTool(`https://github.com/stacc/blocc-cli-releases/releases/download/${tag}/${binary}_${version}_${os.platform()}_${arch}.tar.gz`);
         const bloccExtractedFolder = await tc.extractTar(bloccPath);
-        
-        localBloccPath = await tc.cacheFile(path.join(bloccExtractedFolder, 'blocc'), 'blocc', 'blocc', version);
+
+        localBloccPath = await tc.cacheFile(path.join(bloccExtractedFolder, binary), 'blocc', 'blocc', version);
       }
 
       core.addPath(localBloccPath);

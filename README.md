@@ -31,7 +31,7 @@ steps:
 
 The actions supports the following inputs:
 
-- `version`: The version of `blocc` to install, defaulting to latest
+- `version`: The version of `blocc` to install, defaulting to latest. A beta such as `1.11.0-beta.48` installs from its `beta-cli-v` release.
 - `token`: GitHub token for the latest-release lookup, defaulting to `github.token`. Unauthenticated lookups are rate limited per runner IP.
 
 ## Example job
